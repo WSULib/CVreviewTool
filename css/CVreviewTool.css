@@ -1,6 +1,6 @@
 html{
 	background-image:url('../images/scholar.jpg'); /*http://upload.wikimedia.org/wikipedia/commons/c/c6/Gerbrand_van_den_Eeckhout_003.jpg*/
-	background-repeat:no-repeat;
+	/*background-repeat:no-repeat;*/
 	background-size:100%;
 }
 body {
@@ -31,6 +31,11 @@ form { display: inline; }
     border-bottom: 1px solid #333333;
     border-left: 1px solid #CCCCCC;
    }
+
+.citation {
+	/*width:50%;
+	float:left;	*/
+}
 
 .citations {
 	margin-bottom:20px;
@@ -119,6 +124,10 @@ form { display: inline; }
 
 #nav li {
 	padding-left: 6px;
+}
+
+.orange{
+	color:orange;
 }
 
 #overview_text {

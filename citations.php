@@ -2,6 +2,26 @@
 require_once('db/db.php');
 require_once('inc/header.php');
 
+// determine if reval, if so, pull info
+if (isset($_REQUEST['reval'])){
+
+	// query DB, get 
+	$query = "SELECT id, citation, report_choice, jtitle, issn FROM citations WHERE id = {$_REQUEST['reval']}";
+	$result = $CVreviewTool_dbconnect->query($query) or die($CVreviewTool_dbconnect->error.__LINE__);
+	if($result->num_rows > 0) {
+		$i = 0;
+		while($row = $result->fetch_assoc()) {
+			$id = $row['id'];
+			$citation = $row['citation'];
+			$report_choice = $row['report_choice'];
+			$jtitle = $row['jtitle'];
+			$issn = $row['issn'];
+		}
+	}
+}
+
+
+
 if (!empty($_REQUEST['author_id'])) {
 	
 	//get author_id
@@ -15,7 +35,7 @@ if (!empty($_REQUEST['author_id'])) {
 			<ul>
 				<li>
 					<label><b><span class="green">ISSN #</span> (overrides journal title entry below)</b></label>
-					<input id="issn" name="issn" type="text">
+					<input id="issn" name="issn" type="text" value="<?php if (isset($issn)){ echo $issn; } ?>"/>
 				</li>		
 				</br>			
 				<li>
@@ -28,7 +48,7 @@ if (!empty($_REQUEST['author_id'])) {
 							</tr>
 							<tr>								
 								<td>
-									<input type="text" name="jtitle" id="jtitle" /><button type="button" class="btn btn-append" onclick="getSuggests($('#jtitle').val());">get journal titles</button>
+									<input type="text" name="jtitle" id="jtitle" value="<?php if (isset($jtitle)){ echo $jtitle; } ?>"/><button type="button" class="btn btn-append" onclick="getSuggests($('#jtitle').val());">get journal titles</button>
 								</td>
 								<td>
 									<select name="prev_issn" id="prev_jtitle">
@@ -65,7 +85,9 @@ if (!empty($_REQUEST['author_id'])) {
 			<li>
 				<label class="green"><b>Paste Citations here:</b></label>
 					<!-- ckeditor textarea -->
-					<textarea id="citation_text" name="citation_text" style="display:hidden;"></textarea>
+					<textarea id="citation_text" name="citation_text" style="display:hidden;">						
+						<?php if (isset($citation)){ echo $citation; } ?>
+					</textarea>
 					<script type="text/javascript">
 						//instatiates editor
 						CKEDITOR.replace( 'citation_text', {
@@ -74,11 +96,19 @@ if (!empty($_REQUEST['author_id'])) {
 					</script>
 			</li>
 			<input type="hidden" name="author_id" value="<?php echo $author_id; ?>" />
-			<input type="submit" value="check permissions" />
+			<input type="submit" value="Check Permissions" />
+			<button type="submit" name="in_progress" value="true">Save for Later</button>
+			<input type="hidden" name="reval" value="<?php if (isset($id)){ echo $id; } ?>"/>						
 		</form>
 
 	</div>
-<?php } 
+
+	<?php 
+	// if (isset($_REQUEST['reval'])){
+	// 	echo "<script type='text/javascript'>$(document).ready(function(){revalCitation();});</script>";
+	// }
+	
+} 
 
 else { ?>
 	<div id="page_content">

@@ -49,6 +49,15 @@ function editCitation(author_id, cite_num) {
 }
 
 
+// revaluate citation, pull citation info from DB into citations.php screen
+function revalCitation(){
+  alert("Hello world!");
+}
+
+
+
+
+
 //toggle overview text
 $(document).ready(function(){
   $('#show_overview').click(function () {         
@@ -57,3 +66,10 @@ $(document).ready(function(){
     // $('#show_overview').hide();
   });
 });
+
+
+
+
+
+
+
