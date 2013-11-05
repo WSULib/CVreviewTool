@@ -98,16 +98,17 @@ if (!empty($_REQUEST['author_id'])) {
 			<input type="hidden" name="author_id" value="<?php echo $author_id; ?>" />
 			<input type="submit" value="Check Permissions" />
 			<button type="submit" name="in_progress" value="true">Save for Later</button>
+			<?php
+				if (isset($_REQUEST['reval'])){
+					echo "<a href='report.php?author_id=$author_id'><button type='button'>Cancel</button></a>";
+				}
+			?>
 			<input type="hidden" name="reval" value="<?php if (isset($id)){ echo $id; } ?>"/>						
 		</form>
 
 	</div>
 
-	<?php 
-	// if (isset($_REQUEST['reval'])){
-	// 	echo "<script type='text/javascript'>$(document).ready(function(){revalCitation();});</script>";
-	// }
-	
+	<?php	
 } 
 
 else { ?>
