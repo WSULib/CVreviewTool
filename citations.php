@@ -20,6 +20,17 @@ if (isset($_REQUEST['reval'])){
 	}
 }
 
+// try ALWAYS to remove 
+else {
+	//get citation info from cookie
+	$citation_info = unserialize($_COOKIE['citation_info']);
+	if (isset($citation_info['reval'])){
+		unset($citation['reval']);
+	}
+	$srz_citation_info = serialize($citation_info);
+	setcookie("citation_info", $srz_citation_info);	
+}
+
 
 
 if (!empty($_REQUEST['author_id'])) {

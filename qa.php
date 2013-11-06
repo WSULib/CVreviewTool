@@ -127,22 +127,23 @@ if(!isset($_REQUEST['in_progress'])){
 <?php
 }
 
+// in the case of a reval
 else {	
 	//create param_array for citations db entry
 	$citation_info = array(
-							'author_id' => $author_id,
-							'citation_text' => $_POST['citation_text'],
-							'jtitle' => $_POST['jtitle'],
-							'issn' => $_POST['issn'],
-							'reval' => $_POST['reval']
-							);
-	
+		'author_id' => $author_id,
+		'citation_text' => $_REQUEST['citation_text'],
+		'jtitle' => $_REQUEST['jtitle'],
+		'issn' => $_REQUEST['issn'],
+		'reval' => $_REQUEST['reval']
+	);
+
 	//cookie
 	$srz_citation_info = serialize($citation_info);
 	setcookie("citation_info", $srz_citation_info);	
 
 	// redirect with javascript
-	echo "<script type='text/javascript'>window.location = 'citation_inc.php?author_id=$author_id&perm_type=in_progress';</script>";
+	echo "<script type='text/javascript'>alert ('hold up!'); window.location = 'citation_inc.php?author_id=$author_id&perm_type=in_progress';</script>";
 
 }
 
