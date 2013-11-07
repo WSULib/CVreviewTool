@@ -108,6 +108,13 @@ form { display: inline; }
 #journal_search {
 	display:none;
 	background-color:rgba(0,0,0,.1);
+	/*max-height:300px;
+	overflow-y:scroll;*/
+}
+
+#journal_search ul {	
+	max-height:300px;
+	overflow-y:scroll;
 }
 
 #journal_search li { 

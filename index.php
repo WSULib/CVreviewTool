@@ -12,8 +12,9 @@ require_once('inc/header.php');
 	<p>To begin, select an Author / Project below.</p>	
 	<form id="author_select" class="forms" name="author_select" action="citations.php" method="GET">
 		<select name="author_id" id="author_id">
+			<option value="select_def">select a person...</option>
 			<?php
-				$stmt = $CVreviewTool_dbconnect->prepare("SELECT id, name FROM person");
+				$stmt = $CVreviewTool_dbconnect->prepare("SELECT id, name FROM person ORDER BY lname ASC");
 				$stmt->execute(); 
 				$stmt->bind_result($author_id, $author_name);
 				while ( $row = $stmt->fetch() ) { ?>
@@ -28,7 +29,7 @@ require_once('inc/header.php');
 	</br>
 	</br>
 
-	<p>Or, <a href="author_create.php">create a new Author / Project</a></p>	
+	<p>Or, <a href="author_create.php">begin a new CV review</a></p>	
 </div>
 
 <?php

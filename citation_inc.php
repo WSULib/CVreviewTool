@@ -14,17 +14,9 @@ foreach ($citation_info as $key => $value) {
 $citation_text = trim($citation_info['citation_text']);
 $issn = strip_tags($citation_info['issn']);
 
-// testing
-echo "TESTING!!!!!!!!!!!!!!!!!!!!";
-print_r($citation_info);
-
-
-
 // new citation, journal found, selection made
 ////////////////////////////////////////////////////////////////////////////////////////////////
-if ($perm_type != "in_progress" && empty($clean['reval']) ){
-
-	echo "firing 1";
+if ($perm_type != "in_progress" && empty($clean['reval']) ){	
 
 	//processing for db insert
 	$citation_text = trim($citation_info['citation_text']);
@@ -63,9 +55,7 @@ if ($perm_type != "in_progress" && empty($clean['reval']) ){
 if ($perm_type != "in_progress" && !empty($clean['reval'])){
 
 	//processing for db insert
-	$citation_text = trim($citation_info['citation_text']);
-
-	echo "firing 2";
+	$citation_text = trim($citation_info['citation_text']);	
 
 	//db insert
 	$query = "UPDATE citations SET 
@@ -98,9 +88,7 @@ if ($perm_type != "in_progress" && !empty($clean['reval'])){
 ////////////////////////////////////////////////////////////////////////////////////////////////
 if ($perm_type == "in_progress" && empty($clean['reval']) ) {
 
-	$citation_text = trim($citation_info['citation_text']);
-
-	echo "firing 3";
+	$citation_text = trim($citation_info['citation_text']);	
 
 	//db insert
 	$query = "INSERT INTO citations SET 
@@ -131,8 +119,7 @@ if ($perm_type == "in_progress" && empty($clean['reval']) ) {
 // updating UNFOUND journal citation, "reval" workflow
 ////////////////////////////////////////////////////////////////////////////////////////////////
 if ($perm_type == "in_progress" && !empty($clean['reval'])) { 
-
-	echo "firing 4";
+	
 	//db update
 	$query = "UPDATE citations SET 
 		citation = '$citation_text',

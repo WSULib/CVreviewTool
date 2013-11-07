@@ -119,8 +119,36 @@ if(!isset($_REQUEST['in_progress'])){
 	} //closes != notFound conditional
 
 	else {
-		echo "<div id='page_content'>";
-		echo "The journal was not be found, <a href='javascript:history.back();'>try again.</a>";
+
+		// create param_array for citations db entry
+		$citation_info = array(
+								'author_id' => $author_id,
+								'citation_text' => $_REQUEST['citation_text'],
+								'jtitle' => $_REQUEST['jtitle'],
+								'issn' => $_REQUEST['issn'],								
+								'reval' => $_POST['reval']
+								);
+		
+		//cookie
+		$srz_citation_info = serialize($citation_info);
+		setcookie("citation_info", $srz_citation_info);	
+
+
+		?>
+
+		<div id='page_content'>
+		<p class='red'>Journal not found.</p>
+		<div id="report_decision">		
+			<p><b>Select a report section to add citations to, or go back:</b></br>
+				<button class="btn btn-small" onclick="window.location='citation_inc.php?author_id=<?php echo $author_id; ?>&perm_type=publisher'">Add to Publisher</button>
+				<button class="btn btn-small" onclick="window.location='citation_inc.php?author_id=<?php echo $author_id; ?>&perm_type=postprint'">Add to PostPrints</button>			
+				<button class="btn btn-small" onclick="window.location='citation_inc.php?author_id=<?php echo $author_id; ?>&perm_type=preprint'">Add to PrePrints</button>
+				<button class="btn btn-small" onclick="window.location='citation_inc.php?author_id=<?php echo $author_id; ?>&perm_type=in_progress'">Save for Later</button>				
+				<button class="btn btn-small" onClick="javascript:history.back();">Go Back</button>
+			</p>
+		</div>	
+		
+		<?php
 	} ?>
 
 		</div> <!-- closes page_content div -->
@@ -143,7 +171,7 @@ else {
 	setcookie("citation_info", $srz_citation_info);	
 
 	// redirect with javascript
-	echo "<script type='text/javascript'>alert ('hold up!'); window.location = 'citation_inc.php?author_id=$author_id&perm_type=in_progress';</script>";
+	echo "<script type='text/javascript'>window.location = 'citation_inc.php?author_id=$author_id&perm_type=in_progress';</script>";
 
 }
 

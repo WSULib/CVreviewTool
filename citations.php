@@ -33,7 +33,7 @@ else {
 
 
 
-if (!empty($_REQUEST['author_id'])) {
+if (!empty($_REQUEST['author_id']) && $_REQUEST['author_id'] != "select_def") {
 	
 	//get author_id
 	$author_id = $_REQUEST['author_id'];
@@ -65,7 +65,7 @@ if (!empty($_REQUEST['author_id'])) {
 									<select name="prev_issn" id="prev_jtitle">
 										<option value="">Select a previously entered journal</option>
 										<?php
-											$query = "SELECT jtitle, issn FROM citations WHERE person_id = '$author_id'";
+											$query = "SELECT jtitle, issn FROM citations WHERE person_id = '$author_id' GROUP BY issn";
 											$result = $CVreviewTool_dbconnect->query($query) or die($selfarchive_dbconnect->error.__LINE__);						
 											if($result->num_rows > 0) {
 												while($row = $result->fetch_assoc()) { ?>
