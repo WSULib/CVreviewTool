@@ -35,18 +35,23 @@ if(!isset($_REQUEST['in_progress'])){
 
 	//determine if journal found
 	$outcome = $obj->header->outcome;
-	if ($outcome != 'notFound' && !empty($outcome)) {
+
+	// JOURNAL AND CONDITIONS FOUND
+	if ($outcome != 'notFound' && !empty($outcome) && isset($obj->publishers->publisher)) {		
 
 		//parse XML for information and permissions
-		$jtitle = $obj->journals->journal->jtitle;
-		$publisher = $obj->journals->journal->romeopub;
-		$conditions = $obj->publishers->publisher->conditions; //array of "condition"
-		$preprint = $obj->publishers->publisher->preprints->prearchiving;
-		$preprint_restrictions = $obj->publishers->publisher->preprints->prerestrictions; //array of "prerestrction"
-		$postprint = $obj->publishers->publisher->postprints->postarchiving;
-		$postprint_restrictions = $obj->publishers->publisher->postprints->postrestrictions; //array of "postrestrction"
-		//get issn if not provided by user
-		$issn = $obj->journals->journal->issn;
+		if (isset($obj->journals->journal)){
+			$jtitle = $obj->journals->journal->jtitle;
+			$publisher = $obj->journals->journal->romeopub;				
+			$issn = $obj->journals->journal->issn;
+		}
+		if (isset($obj->publishers->publisher)) {			
+			$conditions = $obj->publishers->publisher->conditions; //array of "condition"
+			$preprint = $obj->publishers->publisher->preprints->prearchiving;
+			$preprint_restrictions = $obj->publishers->publisher->preprints->prerestrictions; //array of "prerestrction"
+			$postprint = $obj->publishers->publisher->postprints->postarchiving;	
+			$postprint_restrictions = $obj->publishers->publisher->postprints->postrestrictions; //array of "postrestrction"
+		}		
 		?>
 
 		<div id="page_content">
@@ -117,6 +122,57 @@ if(!isset($_REQUEST['in_progress'])){
 			</div>
 		<?php 
 	} //closes != notFound conditional
+
+	// JOURNAL FOUND, BUT NOT CONDITIONS
+	elseif ($outcome != 'notFound' && !empty($outcome) && !isset($obj->publishers->publisher)) {
+
+		
+
+		//parse XML for information and permissions
+		if (isset($obj->journals->journal)){
+			$jtitle = $obj->journals->journal->jtitle;
+			$publisher = $obj->journals->journal->romeopub;				
+			$issn = $obj->journals->journal->issn;
+		}				
+		?>
+
+		<div id="page_content">
+			<?php		
+				echo "<b>Journal Title:</b> <a href='http://www.sherpa.ac.uk/romeo/search.php?issn=$issn'>$jtitle</a></br>";
+				echo "<b>ISSN:</b> $issn</br>";				
+
+				echo "<b>Citations to add under this journal:</b>";
+				echo "<div id='citation_text_box'>";
+				echo $_POST['citation_text'];
+				echo "</div>";
+
+				//create param_array for citations db entry
+				$citation_info = array(
+										'author_id' => $author_id,
+										'citation_text' => $_POST['citation_text'],
+										'jtitle' => $jtitle->asXML(),
+										'issn' => $issn->asXML(),										
+										'reval' => $_POST['reval']
+										);
+				
+				//cookie
+				$srz_citation_info = serialize($citation_info);
+				setcookie("citation_info", $srz_citation_info);		
+
+			?>		
+			</br></br></br>
+			<div id="report_decision">		
+				<p><b>Select a report section to add citations to, or go back:</b></br>
+					<button class="btn btn-small" onclick="window.location='citation_inc.php?author_id=<?php echo $author_id; ?>&perm_type=publisher'">Add to Publisher</button>
+					<button class="btn btn-small" onclick="window.location='citation_inc.php?author_id=<?php echo $author_id; ?>&perm_type=postprint'">Add to PostPrints</button>			
+					<button class="btn btn-small" onclick="window.location='citation_inc.php?author_id=<?php echo $author_id; ?>&perm_type=preprint'">Add to PrePrints</button>
+					<button class="btn btn-small" onclick="window.location='citation_inc.php?author_id=<?php echo $author_id; ?>&perm_type=in_progress'">Save for Later</button>				
+					<button class="btn btn-small" onClick="javascript:history.back();">Go Back</button>
+				</p>
+			</div>
+		<?php 	
+
+	}
 
 	else {
 
