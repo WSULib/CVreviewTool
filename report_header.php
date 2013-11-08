@@ -22,7 +22,10 @@ require_once('php/CVreviewTool_functions.php');
 		}
 		body {
 			background-color:white;			
+			font-size:1.1em;
+			/*width:auto;*/
 		}
+
 	</style>
 </head>
 
@@ -38,7 +41,7 @@ else {
 ?>
 
 <body>
-	<div id="header">
+	<div id="header" class="externalHeaderFooter">
 		<div class="container row">			
 			<div class="half">
 				<img src="images/library_system_w_v2.png"/>

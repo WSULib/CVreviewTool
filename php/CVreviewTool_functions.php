@@ -2,7 +2,7 @@
 
 // generate citations for internal / management report
 // includes CRUD and restrictions on
-function genManageReportCitations($author_id, $context, $CVreviewTool_dbconnect){
+function genInternalReportCitations($author_id, $context, $CVreviewTool_dbconnect){
 	$query = "SELECT id, citation, postprint_restrictions, preprint_restrictions, report_choice, jtitle, issn FROM citations WHERE (person_id = '$author_id' AND report_choice = '$context')";
 	$result = $CVreviewTool_dbconnect->query($query) or die($CVreviewTool_dbconnect->error.__LINE__);
 	if($result->num_rows > 0) {

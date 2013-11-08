@@ -77,6 +77,6 @@ else { ?>
 <?php }
 
 //footer
-include('inc/footer.php');
+include('inc/report_footer.php');
 
 ?>

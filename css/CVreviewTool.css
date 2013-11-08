@@ -7,6 +7,7 @@ body {
 	width:1190px;
 	float:center;
 	margin:auto;
+	margin-bottom:20px;
 	background-color:rgba(140,140,140,.6);
 	padding:15px;
 	margin-top:20px;
@@ -77,9 +78,13 @@ form { display: inline; }
 	padding-left:1.5em;
 }
 
+.externalHeaderFooter {
+	border-radius:7px;	
+}
+
 #footer {
 	background-color: rgba(226,226,226,1);
-	padding: 10px;	
+	padding: 10px;		
 }
 
 #foot a{
@@ -93,8 +98,11 @@ form { display: inline; }
 
 #header {
 	background-color:rgba(226,226,226,1);
-	padding:10px;
-	/*margin-bottom:2px;*/
+	padding:10px;	
+}
+
+#header.externalHeaderFooter, #footer.externalHeaderFooter {
+	background-color:white;
 }
 
 .inline-list {

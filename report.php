@@ -67,20 +67,20 @@ if (!empty($_REQUEST['author_id'])) {
 					<div id="pub_citations" class="citations">
 						<h5>Publisher's PDF</h5>
 						<p>We will obtain the PDF and deposit immediately.</p>
-							<?php genManageReportCitations($author_id,'publisher',$CVreviewTool_dbconnect); ?>
+							<?php genInternalReportCitations($author_id,'publisher',$CVreviewTool_dbconnect); ?>
 					</div>
 					<div id="post_ctations" class="citations">
 						<h5>Post-Print/Final Submission Manuscript</h5>
 						<p>Please send us the final submission manuscript for each, we will re-format and deposit this file.  We can also provide digitization services for post-print documents, or in some cases, create a document for self-archiving from the published version.<p>						
-						<?php genManageReportCitations($author_id,'postprint',$CVreviewTool_dbconnect); ?>
+						<?php genInternalReportCitations($author_id,'postprint',$CVreviewTool_dbconnect); ?>
 					</div>
 					<div id="pre_citations" class="citations">
 						<h5>Pre-Prints</h5>						
-						<?php genManageReportCitations($author_id,'preprint',$CVreviewTool_dbconnect); ?>
+						<?php genInternalReportCitations($author_id,'preprint',$CVreviewTool_dbconnect); ?>
 					</div>
 					<div id="in_progress" class="citations">
 						<h5>In Progress</h5>						
-						<?php genManageReportCitations($author_id,'in_progress',$CVreviewTool_dbconnect); ?>
+						<?php genInternalReportCitations($author_id,'in_progress',$CVreviewTool_dbconnect); ?>
 					</div>
 			</div> <!--closes publications -->
 		</div>
