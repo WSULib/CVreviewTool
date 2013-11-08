@@ -47,6 +47,11 @@ form { display: inline; }
 	padding:5px;
 }
 
+.citationIntNotes {
+	color:rgb(0,182,15);
+	margin-left:50px;
+}
+
 .cite_light {
 	/*background-color:rgba(15,150,223,.05);
 	background-color:rgba(15,150,223,.05);*/

@@ -3,7 +3,7 @@
 // generate citations for internal / management report
 // includes CRUD and restrictions on
 function genInternalReportCitations($author_id, $context, $CVreviewTool_dbconnect){
-	$query = "SELECT id, citation, postprint_restrictions, preprint_restrictions, report_choice, jtitle, issn FROM citations WHERE (person_id = '$author_id' AND report_choice = '$context')";
+	$query = "SELECT id, citation, postprint_restrictions, preprint_restrictions, report_choice, jtitle, issn, internalNotes FROM citations WHERE (person_id = '$author_id' AND report_choice = '$context')";
 	$result = $CVreviewTool_dbconnect->query($query) or die($CVreviewTool_dbconnect->error.__LINE__);
 	if($result->num_rows > 0) {
 		$i = 0;
@@ -25,11 +25,15 @@ function genInternalReportCitations($author_id, $context, $CVreviewTool_dbconnec
 					$citationText = $row['citation'];
 				}
 			 	echo $citationText;
+			 	echo "</div>"; // close citation text
+			 	echo "<div id='citationIntNotes_{$row['id']}' class='citationIntNotes'>";
+			 	echo $row['internalNotes'];
 			 	echo "</div>";
 				echo "<div class='cite_edit small'><ul class='inline-list'><li><a href='http://www.sherpa.ac.uk/romeo/search.php?issn={$row['issn']}'><em>{$row['jtitle']}:</em></a></li>";
-				echo "<li><a class='orange' href='#' onclick='editCitation($author_id,{$row['id']});'>edit</a></li>";											 
-				echo "<li><a class='red' href='delete.php?citation_num={$row['id']}&author_id=$author_id'>delete</a></li>";
-				echo "<li><a class='green' href='citations.php?author_id=$author_id&reval={$row['id']}'>re-evaluate</a></li>";
+				echo "<li><a class='orange' href='#' onclick='editCitation($author_id,{$row['id']});'><strong>edit</strong></a></li>";											 
+				echo "<li><a class='red' href='delete.php?citation_num={$row['id']}&author_id=$author_id'><strong>delete</strong></a></li>";
+				echo "<li><a class='blue' href='citations.php?author_id=$author_id&reval={$row['id']}'><strong>re-evaluate</strong></a></li>";
+				echo "<li><a class='green' href='#' onclick='editCitationIntNotes($author_id,{$row['id']});'><strong>edit notes</strong></a></li>";
 				echo "</ul></div>";
 				echo "</div>";
 				// move the counter
