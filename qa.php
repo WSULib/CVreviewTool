@@ -51,6 +51,8 @@ if(!isset($_REQUEST['in_progress'])){
 			$preprint_restrictions = $obj->publishers->publisher->preprints->prerestrictions; //array of "prerestrction"
 			$postprint = $obj->publishers->publisher->postprints->postarchiving;	
 			$postprint_restrictions = $obj->publishers->publisher->postprints->postrestrictions; //array of "postrestrction"
+			$pdfversion = $obj->publishers->publisher->pdfversion->pdfarchiving;	
+			$pdfversion_restrictions = $obj->publishers->publisher->pdfversion->pdfrestrictions; //array of "postrestrction"
 		}		
 		?>
 
@@ -71,6 +73,14 @@ if(!isset($_REQUEST['in_progress'])){
 				if (sizeof($postprint_restrictions->postrestriction) > 0) {
 					echo "<ul>";
 					foreach ($postprint_restrictions->postrestriction as $post) {				
+						echo "<li>$post</li>";
+					}
+					echo "</ul>";
+				}
+				echo "<b>Publisher PDF:</b> $pdfversion</br>";
+				if (sizeof($pdfversion_restrictions->pdfrestriction) > 0) {
+					echo "<ul>";
+					foreach ($pdfversion_restrictions->pdfrestriction as $post) {				
 						echo "<li>$post</li>";
 					}
 					echo "</ul>";
