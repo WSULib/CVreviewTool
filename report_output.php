@@ -41,9 +41,9 @@ if (!empty($_REQUEST['author_id'])) {
 				<ul style="list-style-type:circle;">
 					<li>Permissions checks were only conducted for journal articles. We will have to directly contact publishers to get permissions for book chapters.</li>
 					</br>
-					<li>PDF's are separated into two lists based on what is electronically available to me. For publications you do not have PDF copies of, please indicate, we can scan if you have a print copy available.</li>
+					<li>For publications you do not have PDF copies of, please indicate, we can scan if you have a print copy available.</li>
 					</br>
-					<li>Where publisher information is unknown for a journal article, we will submit a permissions letter – a basic template of this letter is attached at the end of this document. Please confirm that you would like us to pursue this on your behalf.</li>
+					<li>Where publisher information is unknown for a journal article, we will submit a permissions letter - a basic template of this letter is attached at the end of this document. Please confirm that you would like us to pursue this on your behalf.</li>
 				</ul>				
 			</div>
 			

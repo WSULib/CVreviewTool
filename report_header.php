@@ -43,9 +43,9 @@ else {
 <body>
 	<div id="header" class="externalHeaderFooter">
 		<div class="container row">			
-			<div class="half">
+			<div class="">
 				<img src="images/library_system_w_v2.png"/>
-				<h3 style="margin-bottom:0px;">Self-Archiving Report for <?php echo getAuthorName($author_id); ?></h3>
+				<h3 style="margin-bottom:0px;">CV / Publications Review for <?php echo getAuthorName($author_id); ?></h3>
 				<p style="margin-bottom:0px;"><em>Generated <?php echo date("l, F j, Y"); ?></em></p>				
 			</div>			
 		</div>		
