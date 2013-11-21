@@ -56,15 +56,28 @@ function editCitationIntNotes(author_id, cite_num) {
   var notesHandle = document.getElementById(citationIntNotes);
   $(notesHandle).fadeOut(300, function () { 
   var orig_notes_text = $(notesHandle).html();
-  // if (orig_notes_text == ''){
-  //   orig_notes_text = "Hello World!";
-  // }
-  // console.log(orig_notes_text);
 
   //create, populate, and edit text area
   $(notesHandle).after('<form id="citationIntNotes_edit_form" class="forms" name="citationIntNotes_edit_form" action="citationIntNotes_edit.php" method="POST"><textarea id="citationIntNotes_edit" name="citationIntNotes_edit" style="display:hidden;">'+orig_notes_text+'</textarea><input type="hidden" name="cite_num" value="'+cite_num+'"><input type="hidden" name="author_id" value="'+author_id+'"><input class="btn btn-small" type="submit" value="submit changes"></form><button class="btn btn-small" onClick="window.location.reload()">Cancel</button>');
 
   CKEDITOR.replace( citationIntNotes_edit, {
+    toolbar : [['Source','-','Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'Checkbox', 'Image', 'Styles','Format','Font','FontSize', 'TextColor','BGColor' ]]
+  });
+});
+
+}
+
+// edit templates
+function editTemplate(author_id, template_id) {  
+  //create handle
+  var template_handle = document.getElementById(template_id);
+  $(template_handle).fadeOut(300, function () { 
+  var orig_template_text = $(template_handle).html();
+
+  //create, populate, and edit text area
+  $(template_handle).after('<form id="template_edit_form" class="forms" name="template_edit_form" action="template_edit.php" method="POST"><textarea id="template_edit" name="template_edit" style="display:hidden;">'+orig_template_text+'</textarea><input type="hidden" name="template_id" value="'+template_id+'"><input class="btn btn-small" type="submit" value="submit changes"><input type="hidden" name="author_id" value="'+author_id+'"></form><button class="btn btn-small" onClick="window.location.reload()">Cancel</button>');
+
+  CKEDITOR.replace( template_edit, {
     toolbar : [['Source','-','Bold', 'Italic', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', 'Checkbox', 'Image', 'Styles','Format','Font','FontSize', 'TextColor','BGColor' ]]
   });
 });

@@ -24,24 +24,5 @@ function getAuthorName($author_id) {
 		}
 }
 
-// function committEdit($cite_num,$cite_text) {
-// 	global $CVreviewTool_dbconnect;
-// 	//db insert
-// 	$query = "INSERT INTO citations WHERE id = SET 
-// 		person_id = '{$clean['author_id']}', 
-// 		citation = '$citation_text',
-// 		jtitle = '{$clean['jtitle']}',
-// 		issn = '$issn',
-// 		conditions = '{$clean['conditions']}',
-// 		report_choice = '{$perm_type}',
-// 		preprint = '{$clean['preprint']}',
-// 		postprint = '{$clean['postprint']}',
-// 		preprint_restrictions = '{$clean['pre_restrictions']}',
-// 		postprint_restrictions = '{$clean['post_restrictions']}'
-// 		";
-
-// 	if (!@$CVreviewTool_dbconnect->query($query)) {echo $query; die; }
-// }
-
 ?>
 

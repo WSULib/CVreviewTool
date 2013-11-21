@@ -175,6 +175,11 @@ form { display: inline; }
 	padding:10px;
 }
 
+.template_text_show {
+	display:none;
+	background-color:rgba(255,243, 196,.5);
+}
+
 ul {
 	list-style:none;
 }
