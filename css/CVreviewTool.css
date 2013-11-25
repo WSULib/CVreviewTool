@@ -175,6 +175,10 @@ form { display: inline; }
 	padding:10px;
 }
 
+.statusComplete {
+	background-color: rgb(228, 255, 228);
+}
+
 .template_text_show {
 	display:none;
 	background-color:rgba(255,243, 196,.5);

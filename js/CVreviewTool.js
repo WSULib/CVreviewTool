@@ -90,7 +90,16 @@ function revalCitation(){
   alert("Hello world!");
 }
 
-
+// expects citation row, toggles 
+function toggleCitationStatus(citeNum){
+  $.ajax({
+    url: "php/updateTable.php?citeNum="+citeNum,
+    dataType: "html",
+    success: function( response ) {       
+      $("#"+citeNum).parent().toggleClass('statusComplete');               
+    }
+  });
+}
 
 
 
