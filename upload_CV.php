@@ -9,18 +9,17 @@ $author_id = $_REQUEST['author_id'];
 <div id="page_content">
 
 <?php
-
 // 1) If uploading file, catch that, upload file
 if(file_exists($_FILES['authorDoc']['tmp_name']) || is_uploaded_file($_FILES['authorDoc']['tmp_name'])) {
+	echo "<div id='file_status'><h4>File Upload Status</h4><ul>";
 	if ($_FILES["file"]["error"] > 0) {
 		echo "Return Code: " . $_FILES["file"]["error"] . "<br>";
 	}
-
 	else {	
-		echo "Upload: " . $_FILES["authorDoc"]["name"] . "<br>";
-		echo "Type: " . $_FILES["authorDoc"]["type"] . "<br>";
-		echo "Size: " . ($_FILES["authorDoc"]["size"] / 1024) . " kB<br>";
-		echo "Temp file: " . $_FILES["authorDoc"]["tmp_name"] . "<br>";
+		echo "<li>Upload: " . $_FILES["authorDoc"]["name"] . "</li>";
+		echo "<li>Type: " . $_FILES["authorDoc"]["type"] . "</li>";
+		echo "<li>Size: " . ($_FILES["authorDoc"]["size"] / 1024) . " kB</li>";
+		echo "<li>Temp file: " . $_FILES["authorDoc"]["tmp_name"] . "</li>";
 		
 		// make dir in neccassary
 		if (!file_exists("cvs/$author_id")) {
@@ -28,22 +27,17 @@ if(file_exists($_FILES['authorDoc']['tmp_name']) || is_uploaded_file($_FILES['au
 		}
 
 		if (file_exists("cvs/$author_id/" . $_FILES["authorDoc"]["name"])) {
-			echo $_FILES["authorDoc"]["name"] . " already exists. ";
+			// echo $_FILES["authorDoc"]["name"] . " already exists. ";
+			move_uploaded_file($_FILES["authorDoc"]["tmp_name"], "cvs/$author_id/".$_FILES["authorDoc"]["name"]);
+			echo "<li>Overwritten: " . "cvs/$author_id/" . $_FILES["authorDoc"]["name"]."</li>";
 		}
 		else {
 			move_uploaded_file($_FILES["authorDoc"]["tmp_name"], "cvs/$author_id/".$_FILES["authorDoc"]["name"]);
-			echo "Stored in: " . "cvs/$author_id/" . $_FILES["authorDoc"]["name"];
+			echo "<li>Stored in: " . "cvs/$author_id/" . $_FILES["authorDoc"]["name"]."</li>";
 		}	
-	}    
+	}
+	echo "</ul></div>";    
 }
-
-
-
-
-
-
-
-
 ?>
 
 
@@ -52,13 +46,19 @@ if(file_exists($_FILES['authorDoc']['tmp_name']) || is_uploaded_file($_FILES['au
 		<ul>
 			<?php
 			// 2) Display all uploaded files regardless	
-			$dirf    = "cvs/$author_id";
-			$dir = scandir($dirf);
-			foreach($dir as $file) {
-			   if(($file!='..') && ($file!='.')) {
-			      echo "<a href='cvs/$author_id/$file'>$file</a></br>";
-			   }
+			if (file_exists("cvs/$author_id/")) {
+			    $dirf    = "cvs/$author_id";
+				$dir = scandir($dirf);
+				foreach($dir as $file) {
+				   if(($file!='..') && ($file!='.')) {
+				      echo "<li><a href='cvs/$author_id/$file'>$file</a></li>";
+				   }
+				}
 			}
+			else{
+				echo "<li>Empty.</li>";
+			}
+			
 			?>
 		</ul>
 	</div>
