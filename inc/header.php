@@ -32,7 +32,7 @@ else {
 		<div class="container row">
 			<div class="half">
 				<a href="."><img src="images/library_system_w_v2.png"/></a>
-				<a href="." style="text-decoration:none; color:black;"><h3>WSU - CVReviewTool</h3></a>
+				<a href="." style="text-decoration:none; color:black;"><h3>Wayne State University - CVReviewTool</h3></a>
 			</div>
 			<div id="nav" class="half">
 				<ul class="inline-list">

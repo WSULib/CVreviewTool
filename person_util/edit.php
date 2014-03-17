@@ -1,5 +1,5 @@
 <? 
-include('config.php'); 
+include('config/db_config.php');
 if (isset($_GET['id']) ) { 
 $id = (int) $_GET['id']; 
 if (isset($_POST['submitted'])) { 

@@ -1,5 +1,5 @@
 <?php
-include_once("config.php");
+include('config/db_config.php');
 
 $CVreviewTool_dbconnect = new mysqli("$hostname", "$username", "$password", "$database");
 

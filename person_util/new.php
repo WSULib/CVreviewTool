@@ -1,5 +1,5 @@
 <? 
-include('config.php'); 
+include('config/db_config.php');
 if (isset($_POST['submitted'])) { 
 foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
 $sql = "INSERT INTO `Array` ( `name` ,  `status`  ) VALUES(  '{$_POST['name']}' ,  '{$_POST['status']}'  ) "; 

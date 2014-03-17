@@ -1,0 +1,9 @@
+<?php
+
+$hostname = "mysql hostname here";
+$database = "CVreviewTool";
+$username = "CVreviewTool";
+$password = "PASSWORD";
+
+?>
+
