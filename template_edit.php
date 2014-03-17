@@ -7,12 +7,8 @@ $template_edit = $_POST['template_edit'];
 $template_id = $_POST['template_id'];
 $author_id = $_POST['author_id'];
 
-// echo $template_edit;
-// echo $template_id;
-// echo $author_id;
-
 //db insert
-$query = "UPDATE templates SET template_text = '$template_edit' WHERE template_id = '$template_id'";
+$query = "INSERT INTO templates (template_id, template_text) VALUES ('$template_id','$template_edit') ON DUPLICATE KEY UPDATE template_text = VALUES(template_text)";
 
 if (!@$CVreviewTool_dbconnect->query($query)) {echo $query; die; }
 
