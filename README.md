@@ -5,7 +5,7 @@ A tool designed to help librarians research self-archiving policies around facul
 
 <h1>Installation Instructutions:</h1>
 
-<h2>Prepare MySQL</h2>
+<h3>Prepare MySQL</h3>
 <ul>
 	<li>Log into mysql with as root or with administrator privileges.</li>
 	<li>Create database:
@@ -15,7 +15,7 @@ A tool designed to help librarians research self-archiving policies around facul
 	</li>
 	<li>Create user:
 		<ul>
-			<li><em>GRANT ALL PRIVILEGES ON CVreviewTool.* TO CVreviewTool@localhost IDENTIFIED BY '[PASSWORD FROM config/db_config.php]';</em></li>
+			<li><em>GRANT ALL PRIVILEGES ON CVreviewTool.* TO CVreviewTool@localhost IDENTIFIED BY '<span style="color:red;">[PASSWORD FROM config/db_config.php]</span>';</em></li>
 		</ul>
 	</li>
 </ul>
