@@ -1,0 +1,5 @@
+1) create database:
+CREATE DATABASE CVreviewTool;
+
+2) create user:
+GRANT ALL PRIVILEGES ON CVreviewTool.* TO CVreviewTool@localhost IDENTIFIED BY 'Arch1v3AllTh1ng5';
