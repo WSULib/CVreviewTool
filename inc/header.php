@@ -1,5 +1,6 @@
 <?php
 require_once('php/CVreviewTool_functions.php');
+require_once('config/app_config.php');
 ?>
 
 <!DOCTYPE html>
@@ -30,9 +31,8 @@ else {
 <body>
 	<div id="header">
 		<div class="container row">
-			<div class="half">
-				<a href="."><img src="images/library_system_w_v2.png"/></a>
-				<a href="." style="text-decoration:none; color:black;"><h3>Wayne State University - CVReviewTool</h3></a>
+			<div class="half">				
+				<a href="." style="text-decoration:none; color:black;"><h3><?php echo $institution_name; ?> - CVReviewTool</h3></a>
 			</div>
 			<div id="nav" class="half">
 				<ul class="inline-list">

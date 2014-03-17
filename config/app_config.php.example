@@ -1,0 +1,13 @@
+<?php
+
+// general configuration file for CVreviewTool
+//////////////////////////////////////////////
+
+// Name of institution
+$institution_name = "ENTER YOUR INSTITUTION'S NAME HERE";
+
+
+
+
+
+?>

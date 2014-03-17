@@ -140,5 +140,5 @@ if ($perm_type == "in_progress" && !empty($clean['reval'])) {
 }
 
 //footer
-require_once('footer.php');
+require_once('inc/footer.php');
 ?>
