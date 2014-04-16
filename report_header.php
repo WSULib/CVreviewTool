@@ -44,7 +44,7 @@ else {
 	<div id="header" class="externalHeaderFooter">
 		<div class="container row">			
 			<div class="">
-				<img src="images/library_system_w_v2.png"/>
+				<img src="<?php echo $institution_logo_url; ?>"/>
 				<h3 style="margin-bottom:0px;">CV / Publications Review for <?php echo getAuthorName($author_id); ?></h3>
 				<p style="margin-bottom:0px;"><em>Generated <?php echo date("l, F j, Y"); ?></em></p>				
 			</div>			
