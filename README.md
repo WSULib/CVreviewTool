@@ -26,4 +26,21 @@ CVreviewTool
 	</li>
 </ul>
 
+<h3>Set Permissions:</h3>
+<ul>
+	<li>Set permissions for directories where files are written to:
+		<ul>
+			<li><em>chown -R www-data:www-data cvs pdfs tmp</em></li>
+		</ul>
+	</li>
+</ul>
+
+
+
+<h1>Troubleshooting:</h1>
+
+<p><strong>Can't upload CV's?</strong></p>
+<p>You might need to increase the PHP "upload_max_filesize" variable in your php.ini file.</p>
+
+
 
