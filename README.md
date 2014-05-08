@@ -42,5 +42,8 @@ CVreviewTool
 <p><strong>Can't upload CV's?</strong></p>
 <p>You might need to increase the PHP "upload_max_filesize" variable in your php.ini file.</p>
 
+<h2>License</h2>
+<p>This utility is freely available and adaptable under CC-BY license.</p>
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 
 
