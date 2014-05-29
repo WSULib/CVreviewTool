@@ -32,7 +32,7 @@ else {
 	<div id="header">
 		<div class="container row">
 			<div class="half">				
-				<a href="." style="text-decoration:none; color:black;"><h3><?php echo $institution_name; ?> - CVReviewTool</h3></a>
+				<a href="." style="text-decoration:none; color:black;"><h3><?php echo $institution_name; ?> - CVreviewTool</h3></a>
 			</div>
 			<div id="nav" class="half">
 				<ul class="inline-list">
