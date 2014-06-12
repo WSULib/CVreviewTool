@@ -63,7 +63,7 @@ if (!empty($_REQUEST['author_id'])) {
 				</div>
 				<div id="preprint_citations" class="citations">
 					<h5>Pre-Prints</h5>
-					<p>We are currently not archiving these, but perhaps that might change.<p>
+					<p>We are not depositing pre-prints at this time.<p>
 					<?php genExternalReportCitations($author_id,'preprint',$CVreviewTool_dbconnect); ?>
 				</div>
 			</div> <!--closes publications -->
