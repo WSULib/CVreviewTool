@@ -53,10 +53,7 @@ function genInternalReportCitations($author_id, $context, $CVreviewTool_dbconnec
 				echo "<div id='article_files'>";
 				foreach (glob("articles/$author_id/{$row['id']}*.*") as $filename) {
 					echo " <a class='pink' target='_tab' href='$filename'><strong>(linked file)</strong></a>";	
-				}
-				// if (file_exists("articles/$author_id/{$row['id']}.pdf")) {
-				// 	echo " <a target='_tab' href='articles/$author_id/{$row['id']}.pdf'><strong>(linked file)</strong></a>";
-				// }
+				}				
 				echo "</div>";
 				echo "<div class='article_upload_form' id='article_upload_{$row['id']}'><h4>Upload article</h4>";				
 				echo "<form class='forms' action='upload_documents.php' method='POST' enctype='multipart/form-data'><input name='author_id' type=hidden value='$author_id'/><input name='articleNum' type=hidden value='{$row['id']}'/>";
@@ -75,7 +72,6 @@ function genInternalReportCitations($author_id, $context, $CVreviewTool_dbconnec
 
 
 // genereates citations for outward facing report
-// no CRUD, can toggle restrictions
 function genExternalReportCitations($author_id, $context, $CVreviewTool_dbconnect){
 	$query = "SELECT id, citation, postprint_restrictions, preprint_restrictions, report_choice, jtitle, issn FROM citations WHERE (person_id = '$author_id' AND report_choice = '$context')";
 	$result = $CVreviewTool_dbconnect->query($query) or die($CVreviewTool_dbconnect->error.__LINE__);
@@ -89,6 +85,37 @@ function genExternalReportCitations($author_id, $context, $CVreviewTool_dbconnec
 				else {
 					echo "<div class='cite_light'>";	
 				}
+				echo "<div class='cite_text_box' id='{$row['id']}'>";
+				// genereate citation WITHOUT restrictions					
+			 	echo $row['citation'];
+			 	echo "</div></div>";								
+				// move the counter
+				$i++; 
+			}
+	}
+	else {
+		echo 'No Results Found.';
+		// script to destroy itself
+		echo "<script type='text/javascript'>$('#".$context."_citations').hide();</script>";
+	}	
+}
+
+// genereates citations for outward facing report
+function genExternalReportCitationsv2($author_id, $context, $CVreviewTool_dbconnect){
+	$query = "SELECT id, citation, postprint_restrictions, preprint_restrictions, report_choice, jtitle, issn FROM citations WHERE (person_id = '$author_id' AND report_choice = '$context')";
+	$result = $CVreviewTool_dbconnect->query($query) or die($CVreviewTool_dbconnect->error.__LINE__);
+	if($result->num_rows > 0) {
+		$i = 0;
+		while($row = $result->fetch_assoc()) {
+			 	// mark which publications currently have files for				
+				$linked_files = glob("articles/$author_id/{$row['id']}*.*");
+				if (count($linked_files) > 0){
+					echo "<div class='cite_linked $'>";
+				}
+				else {
+					echo "<div class='cite_light $'>";
+				}			 	
+								
 				echo "<div class='cite_text_box' id='{$row['id']}'>";
 				// genereate citation WITHOUT restrictions					
 			 	echo $row['citation'];

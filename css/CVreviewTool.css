@@ -67,6 +67,11 @@ form { display: inline; }
 	border-radius:8px 8px 8px 8px;
 }
 
+.cite_linked {
+	background-color:rgba(216, 255, 216, 1);
+	border-radius:8px 8px 8px 8px;	
+}
+
 .cite_edit {
 	width:100%;
 	text-align: right;	
