@@ -37,14 +37,7 @@ if (!empty($_REQUEST['author_id'])) {
 		</div>
 
 		<div id="report_body">			
-			<h4>Overview</h4><a id="show_overview" href="#" onclick="return false">[click to expand]</a>
-			<script type="text/javascript">
-				// //expands overview text
-				// $('#show_overview').click(function () {				  
-				//   $('#overview_text').slideDown(750);
-				//   $('#show_overview').hide();
-				// });
-			</script>
+			<h4>Overview</h4><a id="show_overview" href="#" onclick="return false">[click to expand]</a>			
 			<hr>			
 			<div id="overview_text" class="report_copy">
 				<p>Journal publishers have different policies regarding author archiving in institutional repositories like Digital Commons@WSU.  This document details the versions of your publications that can be archived Digital Commons@WSU. For example, one publisher may allow their final PDF to be deposited, while others specify the final submission manuscript (referred to as the post-print) may only be deposited.</p>
@@ -65,21 +58,21 @@ if (!empty($_REQUEST['author_id'])) {
 			<hr>
 				<div id="publications_text" class="report_copy">
 					<div id="pub_citations" class="citations">
-						<h5>Publisher's PDF</h5>
+						<h4>Publisher's PDF</h4>
 						<p>We will obtain the PDF and deposit immediately.</p>
 							<?php genInternalReportCitations($author_id,'publisher',$CVreviewTool_dbconnect); ?>
 					</div>
 					<div id="post_ctations" class="citations">
-						<h5>Post-Print/Final Submission Manuscript</h5>
+						<h4>Post-Print/Final Submission Manuscript</h4>
 						<p>Please send us the final submission manuscript for each, we will re-format and deposit this file.  We can also provide digitization services for post-print documents, or in some cases, create a document for self-archiving from the published version.<p>						
 						<?php genInternalReportCitations($author_id,'postprint',$CVreviewTool_dbconnect); ?>
 					</div>
 					<div id="pre_citations" class="citations">
-						<h5>Pre-Prints</h5>						
+						<h4>Pre-Prints</h4>						
 						<?php genInternalReportCitations($author_id,'preprint',$CVreviewTool_dbconnect); ?>
 					</div>
 					<div id="in_progress" class="citations">
-						<h5>In Progress</h5>						
+						<h4>In Progress</h4>						
 						<?php genInternalReportCitations($author_id,'in_progress',$CVreviewTool_dbconnect); ?>
 					</div>
 			</div> <!--closes publications -->

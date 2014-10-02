@@ -40,7 +40,7 @@ else {
 }
 ?>
 
-<body>
+<body style="margin-top:10px;">
 	<div id="header" class="externalHeaderFooter">
 		<div class="container row">			
 			<div class="">

@@ -62,8 +62,7 @@ if (!empty($_REQUEST['author_id'])) {
 					<?php genExternalReportCitations($author_id,'postprint',$CVreviewTool_dbconnect); ?>
 				</div>
 				<div id="preprint_citations" class="citations">
-					<h5>Pre-Prints</h5>
-					<p>We are not depositing pre-prints at this time.<p>
+					<h5>Pre-Prints</h5>					
 					<?php genExternalReportCitations($author_id,'preprint',$CVreviewTool_dbconnect); ?>
 				</div>
 			</div> <!--closes publications -->

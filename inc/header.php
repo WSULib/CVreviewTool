@@ -36,13 +36,13 @@ else {
 			</div>
 			<div id="nav" class="half">
 				<ul class="inline-list">
-					<li><a href=".">home</a></li>
+					<li><a href=".">select new author</a></li>
 					<li>|</li>
 					<li><a href="citations.php?author_id=<?php echo $author_id; ?>">add citations</a></li>
 					<li>|</li>
 					<li><a href="templates.php?author_id=<?php echo $author_id; ?>">email templates</a></li>
 					<li>|</li>
-					<li><a href="upload_CV.php?author_id=<?php echo $author_id; ?>">view/upload CV</a></li>
+					<li><a href="upload_documents.php?author_id=<?php echo $author_id; ?>">view/upload documents</a></li>
 					<li>|</li>
 					<li><a href="report.php?author_id=<?php echo $author_id; ?>">view/edit report</a></li>
 					</br>

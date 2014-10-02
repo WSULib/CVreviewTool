@@ -1,18 +1,16 @@
 html{
-	background-image:url('../images/scholar.jpg'); /*http://upload.wikimedia.org/wikipedia/commons/c/c6/Gerbrand_van_den_Eeckhout_003.jpg*/
+	/*background-image:url('../images/scholar.jpg');*/
 	/*background-repeat:no-repeat;*/
 	background-size:100%;
 }
 body {
-	width:1190px;
+	min-width:800px;
+	max-width:2300px;
+	width:90%;	
 	float:center;
-	margin:auto;
-	margin-bottom:20px;
-	background-color:rgba(140,140,140,.6);
-	padding:15px;
-	margin-top:20px;
-	font-family:Cambria;
-	border-radius:10px;
+	margin:40px auto 50px auto;	
+	background-color:rgb(86,86,86);			
+	font-family:Cambria;		
 }
 
 a {
@@ -20,6 +18,15 @@ a {
 }
 
 form { display: inline; }
+
+.article_upload_form {
+	display:none;	
+	text-align:left;			
+}
+
+#article_files{
+	text-align:right;
+}
 
 .button {
     font: bold 11px Arial;
@@ -33,9 +40,8 @@ form { display: inline; }
     border-left: 1px solid #CCCCCC;
    }
 
-.citation {
-	/*width:50%;
-	float:left;	*/
+.citation {	
+	padding:6px;
 }
 
 .citations {
@@ -53,13 +59,12 @@ form { display: inline; }
 }
 
 .cite_light {
-	/*background-color:rgba(15,150,223,.05);
-	background-color:rgba(15,150,223,.05);*/
+	
 }
 
-.cite_dark {
-	background-color:rgba(15,150,223,.11);
+.cite_dark {	
 	background-color:rgba(245,245,245,1);
+	border-radius:8px 8px 8px 8px;
 }
 
 .cite_edit {
@@ -91,6 +96,7 @@ form { display: inline; }
 	background-color: rgba(226,226,226,1);
 	padding: 10px;			
 	text-align:right;
+	border-radius:0px 0px 8px 8px;
 }
 
 
@@ -107,6 +113,7 @@ form { display: inline; }
 #header {
 	background-color:rgba(226,226,226,1);
 	padding:10px;	
+	border-radius:8px 8px 0px 0px;
 }
 
 #header.externalHeaderFooter, #footer.externalHeaderFooter {
@@ -168,6 +175,10 @@ form { display: inline; }
 	padding:15px;
 }
 
+.pink{
+	color:pink;
+}
+
 .report_copy {
 	color:#666;
 	padding-left:1.5em;
@@ -175,6 +186,7 @@ form { display: inline; }
 
 #report_tools {
 	background-color:rgba(255,243, 196,.5);
+	border-radius:6px 6px 6px 6px;
 	padding:10px;
 }
 

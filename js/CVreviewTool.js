@@ -102,6 +102,13 @@ function toggleCitationStatus(citeNum){
 }
 
 
+// expects citation row, toggles 
+function uploadArticle(author_id, cite_num){
+  $("#article_upload_"+cite_num).toggle();
+  
+}
+
+
 
 //toggle overview text
 $(document).ready(function(){
