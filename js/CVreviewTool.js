@@ -90,10 +90,11 @@ function revalCitation(){
   alert("Hello world!");
 }
 
+
 // expects citation row, toggles 
 function toggleCitationStatus(citeNum){
   $.ajax({
-    url: "php/updateTable.php?citeNum="+citeNum,
+    url: "updateStatus.php?citeNum="+citeNum,
     dataType: "html",
     success: function( response ) {       
       $("#"+citeNum).parent().toggleClass('statusComplete');               
