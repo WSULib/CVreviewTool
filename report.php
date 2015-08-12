@@ -32,7 +32,7 @@ if (!empty($_REQUEST['author_id'])) {
 					});					
 				</script>
 			<a target="_blank" href="report_output.php?author_id=<?php echo $author_id; ?>"><button class="btn btn-small">Generate HTML Report</button></a>
-			<button class="btn btn-small disabled" >Merge Journal Titles (soon)</button>
+			<!-- <button class="btn btn-small disabled" >Merge Journal Titles (soon)</button> -->
 			<button class="btn btn-small" onclick='$(".restrictionText").fadeToggle();' >Toggle Restrictions</button>
 		</div>
 
