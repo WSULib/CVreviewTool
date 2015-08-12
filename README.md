@@ -36,7 +36,7 @@ CVreviewTool
 <ul>
 	<li>Set permissions for directories where files are written to:
 		<ul>
-			<li><em>sudo chown -R www-data:www-data cvs pdfs tmp</em></li>
+			<li><em>sudo chown -R www-data:www-data articles cvs pdfs tmp</em></li>
 		</ul>
 	</li>
 </ul>

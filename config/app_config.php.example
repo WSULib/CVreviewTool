@@ -6,7 +6,8 @@
 // Name of institution
 $institution_name = "ENTER YOUR INSTITUTION'S NAME HERE";
 
-
+// base URL (no trailing slash)
+$base_url = "FULL HTTP URL OF YOUR APPLICATION (e.g. 'http://university.edu/CVreviewTool')";
 
 
 

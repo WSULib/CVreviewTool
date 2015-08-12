@@ -44,7 +44,7 @@ else {
 					<li>|</li>
 					<li><a href="upload_documents.php?author_id=<?php echo $author_id; ?>">view/upload documents</a></li>
 					<li>|</li>
-					<li><a href="report.php?author_id=<?php echo $author_id; ?>">view/edit report</a></li>
+					<li><a href="report.php?author_id=<?php echo $author_id; ?>">report</a></li>
 					</br>
 					<li id="current_author">You are working on <strong><?php echo getAuthorName($author_id); ?>'s</strong> report</li>
 				</ul>				
