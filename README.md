@@ -24,13 +24,19 @@ CVreviewTool
 			<li><em>GRANT ALL PRIVILEGES ON CVreviewTool.* TO CVreviewTool@localhost IDENTIFIED BY '[PASSWORD FROM config/db_config.php]';</em></li>
 		</ul>
 	</li>
+	<li>Create tables:
+		<ul>
+			<li>Navigate to 'db' directory</li>
+			<li>Create tables: <em>mysql -u [USERNAME CREATED] -p [DATABASE CREATED] < db_structure.sql</em></li>
+		</ul>
+	</li>
 </ul>
 
 <h3>Set Permissions:</h3>
 <ul>
 	<li>Set permissions for directories where files are written to:
 		<ul>
-			<li><em>chown -R www-data:www-data cvs pdfs tmp</em></li>
+			<li><em>sudo chown -R www-data:www-data cvs pdfs tmp</em></li>
 		</ul>
 	</li>
 </ul>
