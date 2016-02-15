@@ -32,25 +32,25 @@ if (!empty($_REQUEST['author_id'])) {
 					});					
 				</script>
 			<a target="_blank" href="report_output.php?author_id=<?php echo $author_id; ?>"><button class="btn btn-small">Generate HTML Report</button></a>
-			<button class="btn btn-small disabled" >Merge Journal Titles (soon)</button>
+			<!-- <button class="btn btn-small disabled" >Merge Journal Titles (soon)</button> -->
 			<button class="btn btn-small" onclick='$(".restrictionText").fadeToggle();' >Toggle Restrictions</button>
 		</div>
 
 		<div id="report_body">			
-			<h4>Overview</h4><a id="show_overview" href="#" onclick="return false">[click to expand]</a>			
+			<h4>Overview</h4>
 			<hr>			
-			<div id="overview_text" class="report_copy">
-				<p>Journal publishers have different policies regarding author archiving in institutional repositories like Digital Commons@WSU.  This document details the versions of your publications that can be archived Digital Commons@WSU. For example, one publisher may allow their final PDF to be deposited, while others specify the final submission manuscript (referred to as the post-print) may only be deposited.</p>
-				<p>Books and book chapters require contacting publishers directly. After we determine who to contact, we will pursue permissions for these materials by contacting publishers on your behalf and asking for permission to deposit to Digital Commons.</p>
-				<p>Conference papers and presentation are all eligible to be archived. Please let me know if you'd like to make any of those deposited to Digital Commons.</p>				
+			<div id="overview_text_output" class="report_copy">
+				<p>Journal publishers have different policies regarding author self-archiving in institutional repositories.  This document details the versions of your publications that can be self-archived. This is sometimes referred to as "Green Open Access."  For example, one publisher may allow their final PDF to be deposited, while others specify the final submission manuscript (referred to as the post-print) may only be deposited.</p>
+				<p>Books and book chapters require contacting publishers directly. After we determine who to contact, we will pursue permissions for these materials by contacting publishers on your behalf and asking for permission to deposit.</p>
+				<p>Conference papers and presentation are all eligible to be archived. Please let us know if you'd like to deposit any of these.</p>				
 				<h5>Next Steps</h5>
-				<p>The following lists (next page) organize your publications according to the version permissible for depositing to DigitalCommons@WSU. A few notes:</p>
+				<p>The following lists (next page) organize your publications according to the version permissible for deposit. A few notes:</p>
 				<ul style="list-style-type:circle;">
 					<li>Permissions checks were only conducted for journal articles. We will have to directly contact publishers to get permissions for book chapters.</li>
 					</br>
-					<li>PDF's are separated into two lists based on what is electronically available to me. For publications you do not have PDF copies of, please indicate, we can scan if you have a print copy available.</li>
+					<li>For publications you do not have PDF copies of, please indicate, we can scan if you have a print copy available.</li>
 					</br>
-					<li>Where publisher information is unknown for a journal article, we will submit a permissions letter – a basic template of this letter is attached at the end of this document. Please confirm that you would like us to pursue this on your behalf.</li>
+					<li>Where publisher information is unknown for a journal article, we will submit a permissions letter - a basic template of this letter is attached at the end of this document. Please confirm that you would like us to pursue this on your behalf.</li>
 				</ul>				
 			</div>			
 			

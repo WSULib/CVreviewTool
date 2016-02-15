@@ -34,11 +34,11 @@ if (!empty($_REQUEST['author_id'])) {
 			<h4>Overview</h4>
 			<hr>			
 			<div id="overview_text_output" class="report_copy">
-				<p>Journal publishers have different policies regarding author archiving in institutional repositories like Digital Commons@WSU.  This document details the versions of your publications that can be archived Digital Commons@WSU. For example, one publisher may allow their final PDF to be deposited, while others specify the final submission manuscript (referred to as the post-print) may only be deposited.</p>
-				<p>Books and book chapters require contacting publishers directly. After we determine who to contact, we will pursue permissions for these materials by contacting publishers on your behalf and asking for permission to deposit to Digital Commons.</p>
-				<p>Conference papers and presentation are all eligible to be archived. Please let me know if you'd like to make any of those deposited to Digital Commons.</p>				
+				<p>Journal publishers have different policies regarding author self-archiving in institutional repositories.  This document details the versions of your publications that can be self-archived. This is sometimes referred to as "Green Open Access."  For example, one publisher may allow their final PDF to be deposited, while others specify the final submission manuscript (referred to as the post-print) may only be deposited.</p>
+				<p>Books and book chapters require contacting publishers directly. After we determine who to contact, we will pursue permissions for these materials by contacting publishers on your behalf and asking for permission to deposit.</p>
+				<p>Conference papers and presentation are all eligible to be archived. Please let us know if you'd like to deposit any of these.</p>				
 				<h5>Next Steps</h5>
-				<p>The following lists (next page) organize your publications according to the version permissible for depositing to DigitalCommons@WSU. A few notes:</p>
+				<p>The following lists (next page) organize your publications according to the version permissible for deposit. A few notes:</p>
 				<ul style="list-style-type:circle;">
 					<li>Permissions checks were only conducted for journal articles. We will have to directly contact publishers to get permissions for book chapters.</li>
 					</br>

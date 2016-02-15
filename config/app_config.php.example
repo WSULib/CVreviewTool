@@ -6,8 +6,11 @@
 // Name of institution
 $institution_name = "ENTER YOUR INSTITUTION'S NAME HERE";
 
+// Institutional Logo (defaults to 45px high in all instances)
+$institution_logo_url = "ABSOLUTE URL WORKS BEST (e.g. http://wayne.edu/_resources/images/header/wsu-shield.png)";
 
-
+// base URL (no trailing slash)
+$base_url = "FULL HTTP URL OF YOUR APPLICATION (e.g. 'http://university.edu/CVreviewTool')";
 
 
 ?>
