@@ -1,4 +1,7 @@
 <?php
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
 require_once('php/CVreviewTool_functions.php');
 require_once('config/app_config.php');
 ?>
@@ -14,7 +17,7 @@ require_once('config/app_config.php');
 	<!-- kube stylesheet -->
 	<link rel="stylesheet" type="text/css" href="css/kube101/css/kube.css" />
 	<!-- local stylesheet -->
-	<link rel="stylesheet" href="css/CVreviewTool.css" type="text/css">
+	<link rel="stylesheet" href="css/CVreviewTool.css" type="text/css">	
 </head>
 
 <?php 

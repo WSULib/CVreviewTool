@@ -54,7 +54,26 @@ if(!isset($_REQUEST['in_progress'])){
 			$pdfversion = $obj->publishers->publisher->pdfversion->pdfarchiving;	
 			$pdfversion_restrictions = $obj->publishers->publisher->pdfversion->pdfrestrictions; //array of "postrestrction"
 		}		
-		?>
+
+		//create param_array for citations db entry
+		$citation_info = array(
+								'author_id' => $author_id,
+								'citation_text' => $_POST['citation_text'],
+								'jtitle' => $jtitle->asXML(),
+								'issn' => $issn->asXML(),
+								'preprint' => $preprint->asXML(),
+								'postprint' => $postprint->asXML(),
+								'conditions' => $conditions->asXML(),
+								'post_restrictions' => $postprint_restrictions->asXML(),
+								'pre_restrictions' => $preprint_restrictions->asXML(),
+								'reval' => $_POST['reval']
+								);
+		
+		//cookie
+		$srz_citation_info = serialize($citation_info);
+		setcookie("citation_info", $srz_citation_info,time()+60*30);
+
+		?>		
 
 		<div id="page_content">
 			<?php		
@@ -101,24 +120,6 @@ if(!isset($_REQUEST['in_progress'])){
 				echo $_POST['citation_text'];
 				echo "</div>";
 
-				//create param_array for citations db entry
-				$citation_info = array(
-										'author_id' => $author_id,
-										'citation_text' => $_POST['citation_text'],
-										'jtitle' => $jtitle->asXML(),
-										'issn' => $issn->asXML(),
-										'preprint' => $preprint->asXML(),
-										'postprint' => $postprint->asXML(),
-										'conditions' => $conditions->asXML(),
-										'post_restrictions' => $postprint_restrictions->asXML(),
-										'pre_restrictions' => $preprint_restrictions->asXML(),
-										'reval' => $_POST['reval']
-										);
-				
-				//cookie
-				$srz_citation_info = serialize($citation_info);
-				setcookie("citation_info", $srz_citation_info);		
-
 			?>		
 			</br></br></br>
 			<div id="report_decision">		
@@ -136,14 +137,26 @@ if(!isset($_REQUEST['in_progress'])){
 	// JOURNAL FOUND, BUT NOT CONDITIONS
 	elseif ($outcome != 'notFound' && !empty($outcome) && !isset($obj->publishers->publisher)) {
 
-		
-
 		//parse XML for information and permissions
 		if (isset($obj->journals->journal)){
 			$jtitle = $obj->journals->journal->jtitle;
 			$publisher = $obj->journals->journal->romeopub;				
 			$issn = $obj->journals->journal->issn;
-		}				
+		}		
+
+		//create param_array for citations db entry
+		$citation_info = array(
+			'author_id' => $author_id,
+			'citation_text' => $_POST['citation_text'],
+			'jtitle' => $jtitle->asXML(),
+			'issn' => $issn->asXML(),										
+			'reval' => $_POST['reval']
+		);
+		
+		//cookie
+		$srz_citation_info = serialize($citation_info);
+		setcookie("citation_info", $srz_citation_info, time()+60*30);	
+
 		?>
 
 		<div id="page_content">
@@ -155,19 +168,6 @@ if(!isset($_REQUEST['in_progress'])){
 				echo "<div id='citation_text_box'>";
 				echo $_POST['citation_text'];
 				echo "</div>";
-
-				//create param_array for citations db entry
-				$citation_info = array(
-										'author_id' => $author_id,
-										'citation_text' => $_POST['citation_text'],
-										'jtitle' => $jtitle->asXML(),
-										'issn' => $issn->asXML(),										
-										'reval' => $_POST['reval']
-										);
-				
-				//cookie
-				$srz_citation_info = serialize($citation_info);
-				setcookie("citation_info", $srz_citation_info);		
 
 			?>		
 			</br></br></br>
@@ -184,6 +184,7 @@ if(!isset($_REQUEST['in_progress'])){
 
 	}
 
+	// JOURNAL NOT FOUND
 	else {
 
 		// create param_array for citations db entry
@@ -197,8 +198,7 @@ if(!isset($_REQUEST['in_progress'])){
 		
 		//cookie
 		$srz_citation_info = serialize($citation_info);
-		setcookie("citation_info", $srz_citation_info);	
-
+		setcookie("citation_info", $srz_citation_info,time()+60*30);	
 
 		?>
 
@@ -234,7 +234,7 @@ else {
 
 	//cookie
 	$srz_citation_info = serialize($citation_info);
-	setcookie("citation_info", $srz_citation_info);	
+	setcookie("citation_info", $srz_citation_info,time()+60*30);	
 
 	// redirect with javascript
 	echo "<script type='text/javascript'>window.location = 'citation_inc.php?author_id=$author_id&perm_type=in_progress';</script>";

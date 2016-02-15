@@ -7,6 +7,7 @@ $perm_type = $_REQUEST['perm_type'];
 
 //get citation info from cookie
 $citation_info = unserialize($_COOKIE['citation_info']);
+print_r($citation_info);
 
 foreach ($citation_info as $key => $value) {		  
 	$clean[$key] = filter_var($value, FILTER_SANITIZE_STRING);

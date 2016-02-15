@@ -28,7 +28,8 @@ else {
 		unset($citation['reval']);
 	}
 	$srz_citation_info = serialize($citation_info);
-	setcookie("citation_info", $srz_citation_info);	
+	setcookie("citation_info", $srz_citation_info,time()+60*30);	
+	
 }
 
 
