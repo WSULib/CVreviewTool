@@ -64,7 +64,7 @@ if (!empty($_REQUEST['author_id'])) {
 					</div>
 					<div id="post_ctations" class="citations">
 						<h4>Rights Cleared, but Need Post-Print Manuscript</h4>
-						<p>Publishers allow for deposit, but not the final, publisher produced version.  Please send us the <strong>final submission</strong> manuscript for each, we will re-format and deposit this file.  We can also provide digitization services for post-print documents, or in some cases, create a document for self-archiving from the published version.<p>						
+						<p>Publishers allow for deposit, but not the final, publisher produced version.  Please send us the <strong>final submission</strong> manuscript for each, we will re-format and deposit this file.  We can also provide digitization services for post-print documents.<p>						
 						<?php genInternalReportCitations($author_id,'postprint',$CVreviewTool_dbconnect); ?>
 					</div>
 					<div id="pre_citations" class="citations">

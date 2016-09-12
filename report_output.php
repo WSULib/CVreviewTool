@@ -58,7 +58,7 @@ if (!empty($_REQUEST['author_id'])) {
 				</div>				
 				<div id="postprint_citations" class="citations">
 					<h5>Post-Print/Final Submission Manuscript</h5>
-					<p>Please send us the final submission manuscript for each, we will re-format and deposit this file.  We can also provide digitization services for post-print documents, or in some cases, create a document for self-archiving from the published version.<p>
+					<p>Please send us the final submission manuscript for each, we will re-format and deposit this file.  We can also provide digitization services for post-print documents.<p>
 					<?php genExternalReportCitations($author_id,'postprint',$CVreviewTool_dbconnect); ?>
 				</div>
 				<div id="preprint_citations" class="citations">
